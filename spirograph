@@ -1,0 +1,59 @@
+
+"""
+
+Spirograph
+Created on Thu Feb  6 14:37:55 2020
+Modified In-class script
+Creates a repeated spirograph pattern randomly placed on canvas
+@author: kaitlynengelson
+
+"""
+
+#Hyptrochoid parametric equations:
+#x = (r-r)*cos(theta) + d*cos(((R-r)/r)*theta)
+#y = (r-r)*sin(theta) + d*sin(((R-r)/r)*theta)
+
+from turtle import * #turtle thangs
+from random import *
+import numpy as np # math library!
+
+#set up screen and turts
+win= Screen()
+win.clear()
+
+#define colors
+win.bgcolor("#161032") 
+coolers = ["#5E3AFF","#2E06E0","#9882FF"]
+
+#define spirograph
+spgraph = Turtle(visible=False)
+spgraph.width(3)   
+spgraph.speed("fastest")
+
+# define math stuff
+R = 150
+r = 25
+d = 125
+cirNumber = 16 #number of circles in pattern
+steps = 1000
+theta = np.linspace(0, cirNumber * 2*np.pi, steps)
+
+for loop in range(3): #intial offset
+    spgraph.color(coolers[i]) #generate random shade from list
+    #random starting point
+    off_x= randint(-100,100)
+    off_y= randint(-100,100)
+    #get him started
+    spgraph.up()
+    x_0 = off_x + (R-r)*np.cos(theta[0]) + d*np.cos(((R-r)/r)*theta[0])
+    y_0= off_y + (R-r)*np.sin(theta[0]) + d*np.sin(((R-r)/r)*theta[0])
+    spgraph.goto(x_0,y_0)
+    spgraph.down()
+    
+    
+    for t in range(len(theta)):
+        x = off_x +(R-r)*np.cos(theta[t]) + d*np.cos(((R-r)/r)*theta[t])
+        y = off_y +(R-r)*np.sin(theta[t]) + d*np.sin(((R-r)/r)*theta[t])
+        spgraph.goto(x,y)
+        spgraph.down()
+        
