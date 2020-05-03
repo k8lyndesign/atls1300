@@ -1,0 +1,86 @@
+# -*- coding: utf-8 -*-
+#====================
+
+# PC02 - Turtle Party
+
+# Kaitlyn Engelson 
+
+# Date completed 2/5/2020
+
+#
+
+# Description - Turtles dance across the screen, then dissapear, then meet eachother.
+# Code in partial borrowed from class
+#====================
+
+from turtle import *
+
+screen= Screen()
+screen.bgcolor("#2E86AB")
+               
+Joe = Turtle()
+Joe.shapesize(2)
+Joe.shape("turtle")
+Joe.speed(1)
+colors = ["#499167", "#5FDD9D", "#9BC995"]
+
+# this for loop steps through values 0-3
+for i in range(3):
+    #indent to repeat commands
+#    Joe.up()
+#    Joe.goto("0,50")
+    Joe.up()
+    Joe.forward(30)
+    Joe.stamp()
+    Joe.up()
+    Joe.forward(30)
+    Joe.stamp()
+    Joe.color(colors[i]) #index values are 0-3 
+    
+Joe.clearstamps()
+
+Steve = Turtle()
+Steve.shapesize(3)
+Steve.shape("turtle")
+Steve.speed(1)
+colorz = ["#031927", "#9DD1F1", "#91F9E5"]
+
+
+for i in range(3):
+    #Steve.goto("5,5")
+    Steve.up()
+    Steve.backward(30)
+    Steve.stamp()
+    Steve.up()
+    Steve.backward(30)
+    Steve.stamp()
+    Steve.color(colorz[i]) #index values are 0-3 
+    Steve.clearstamps()
+    
+Alan = Turtle()
+Alan.shapesize(3)
+Alan.shape("turtle")
+Alan.speed(1)
+colorr = ["#D88704", "#ED9404", "#FFD289"]
+
+
+for i in range(3):
+    #Alan.goto("5,5")
+    
+    Alan.up()
+    Alan.forward(30)
+    Alan.stamp()
+    Alan.up()
+    Alan.forward(30)
+    Alan.stamp()
+    Alan.color(colorr[i]) #index values are 0-3 
+    
+    Alan.clearstamps()
+
+Steve.pendown()
+Steve.width(10)
+Steve.forward(360)
+    
+
+#screen.clear()
+
